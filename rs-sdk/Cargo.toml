@@ -1,0 +1,21 @@
+[package]
+name = "vvtec-oracles"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.62"
+solana-cli-config = "1.10.35"
+anchor-client = "0.25.0"
+near-crypto = "0.14.0"
+near-jsonrpc-client = "0.4.0-beta.0"
+near-jsonrpc-primitives = "0.14.0"
+near-primitives = "0.14.0"
+serde = "1.0.144"
+serde_json = "1.0.85"
+vvtec-core = { path = "../core", features = ["cpi"] }
+
+[dev-dependencies]
+tokio = "1.20.1"

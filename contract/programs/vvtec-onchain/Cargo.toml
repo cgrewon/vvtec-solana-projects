@@ -1,0 +1,22 @@
+[package]
+name = "vvtec-onchain"
+version = "0.1.0"
+description = "VVTEC Oracles on-chain SDK for Solana"
+edition = "2021"
+authors = ["VVTEC Network Developers <hello@vvtec.network>"]
+license = "Apache-2.0"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "vvtec_onchain"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = "0.25.0"

@@ -1,0 +1,15 @@
+[package]
+name = "vvtec-client"
+version = "0.1.1"
+edition = "2018"
+description = "Vvtec Oracles Rust SDK for Solana"
+authors = ["VVTEC Network Developers <hello@vvtec.network>"]
+license = "Apache-2.0"
+
+[dependencies]
+anchor-client = "0.25.0"
+vvtec-core = { path = "../core", features = ["cpi"] }
+chrono = "0.4.19"
+tracing = "0.1.34"
+solana-cli-config = "1.10.27"
+tokio = { version = "1.14.1", features = ["full"] }

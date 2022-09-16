@@ -1,0 +1,50 @@
+name: Build and Test
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - dev
+
+jobs:
+  build-test:
+    name: Build and Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+      
+      - name: Install Rust Toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          override: true
+          toolchain: stable
+          target: wasm32-unknown-unknown
+          components: rustfmt, clippy
+
+      - name: Setup linux dependencies
+        run: sudo apt-get update && sudo apt-get install -y libudev-dev
+      
+      # - name: Code style checks
+      #   uses: actions-rs/cargo@v1
+      #   with:
+      #     command: fmt
+      #     args: --all -- --check --config merge_imports=true
+      
+      - name: Build
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --workspace --all-features
+
+      - name: Build NEAR
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --package vvtec-near --target wasm32-unknown-unknown --release
+      
+      - name: Test
+        uses: actions-rs/cargo@v1
+        with:
+          command: test
+          args: --workspace

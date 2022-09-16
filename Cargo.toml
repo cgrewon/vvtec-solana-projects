@@ -1,0 +1,3 @@
+[workspace]
+members = ["core", "cli", "client", "vvtec-near", "rs-sdk"]
+default-members = ["core", "cli", "client"]

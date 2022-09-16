@@ -1,0 +1,31 @@
+[package]
+name = "vvtec-onchain"
+version = "0.1.0"
+edition = "2018"
+description = "VVTEC Oracles on-chain SDK for Solana"
+authors = ["VVTEC Network Developers <hello@vvtec.network>"]
+license = "Apache-2.0"
+publish = false
+
+[features]
+no-entrypoint = []
+
+[dependencies]
+vvtec-core = { path = "../" }
+uint = "0.9.3"
+sha3 = "0.10.1"
+borsh = "0.9.3"
+borsh-derive = "0.9.3"
+num-derive = "0.3.3"
+num-traits = "0.2.15"
+thiserror = "1.0.31"
+solana-program = "1.10.27"
+
+[dev-dependencies]
+solana-sdk = "1.10.27"
+pretty-hex = "0.3.0"
+rand = "0.8.5"
+
+[lib]
+name = "vvtec_onchain"
+crate-type = ["cdylib", "lib"]
